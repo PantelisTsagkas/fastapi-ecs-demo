@@ -1,5 +1,5 @@
 # Lets GitHub Actions assume an AWS role via short-lived OIDC tokens instead
-# of long-lived access keys stored as GitHub secrets.
+# of long-lived access keys stored as GitHub secrets..
 #
 # NOTE: an AWS account can only have ONE OIDC provider per URL. If another
 # project in this account already created
