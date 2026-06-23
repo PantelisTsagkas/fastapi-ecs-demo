@@ -1,11 +1,17 @@
 from __future__ import annotations
 
+from pathlib import Path
 from uuid import UUID, uuid4
 
 from fastapi import FastAPI, HTTPException, status
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
+STATIC_DIR = Path(__file__).parent / "static"
+
 app = FastAPI(title="fastapi-ecs-demo", version="0.1.0")
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 
 class ItemIn(BaseModel):
@@ -22,8 +28,8 @@ _items: dict[UUID, Item] = {}
 
 
 @app.get("/")
-def root() -> dict[str, str]:
-    return {"service": "fastapi-ecs-demo", "status": "ok"}
+def root() -> FileResponse:
+    return FileResponse(STATIC_DIR / "index.html")
 
 
 @app.get("/health")

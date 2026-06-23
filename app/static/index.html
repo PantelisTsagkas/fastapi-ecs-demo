@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fastapi-ecs-demo</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>fastapi-ecs-demo</h1>
+        <p class="subtitle">Simple items demo — backed by FastAPI on ECS</p>
+      </header>
+
+      <section class="card">
+        <h2>Add item</h2>
+        <form id="item-form">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required placeholder="e.g. Coffee beans" />
+
+          <label for="description">Description <span class="optional">(optional)</span></label>
+          <input
+            id="description"
+            name="description"
+            type="text"
+            placeholder="e.g. Single origin, 1kg bag"
+          />
+
+          <button type="submit">Add item</button>
+        </form>
+        <p id="form-message" class="message" hidden></p>
+      </section>
+
+      <section class="card">
+        <div class="list-header">
+          <h2>Items</h2>
+          <button id="refresh-btn" type="button" class="secondary">Refresh</button>
+        </div>
+        <p id="list-message" class="message" hidden></p>
+        <ul id="items-list" class="items"></ul>
+        <p id="empty-state" class="empty">No items yet. Add one above.</p>
+      </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
